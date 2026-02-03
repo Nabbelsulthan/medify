@@ -11,3 +11,21 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.custom-pagination {
+  text-align: center;
+}
+
+.custom-pagination .swiper-pagination-bullet {
+  width: 10px;
+  height: 10px;
+  background: #cfd8e3;
+  opacity: 1;
+  margin: 0 6px;
+}
+
+.custom-pagination .swiper-pagination-bullet-active {
+  background: #2d6cdf;
+  box-shadow: 0 0 0 4px rgba(45, 108, 223, 0.2);
+}
+
