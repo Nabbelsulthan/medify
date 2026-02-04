@@ -166,20 +166,6 @@ export default function MyBookings() {
                                             >
                                                 {booking.date}
                                             </p>
-
-
-                                            <Box
-                                                sx={{
-                                                    border: "1px solid #16A34A",
-                                                    color: "#16A34A",
-                                                    px: 2,
-                                                    py: 0.5,
-                                                    borderRadius: "6px",
-                                                    display: "inline-block",
-                                                }}
-                                            >
-                                                {booking.date}
-                                            </Box>
                                         </Box>
                                     </Box>
 
