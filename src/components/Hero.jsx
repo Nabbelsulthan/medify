@@ -68,13 +68,13 @@ export default function Hero() {
 
       console.log("Hospital Results:", data);
 
-     
-     navigate("/search", {
-  state: {
-    state: selectedState,
-    city: selectedCity,
-  },
-});
+
+      navigate("/search", {
+        state: {
+          state: selectedState,
+          city: selectedCity,
+        },
+      });
 
 
     } catch (error) {
@@ -147,48 +147,54 @@ export default function Hero() {
       >
         <Box display="flex" gap={2} flexDirection={{ xs: "column", md: "row" }}>
           {/* STATE */}
-          <FormControl fullWidth>
-            <Select
-              value={selectedState}
-              displayEmpty
-              onChange={(e) => setSelectedState(e.target.value)}
-              sx={{ height: 48, backgroundColor: "#F1F5FF" }}
-            >
-              <MenuItem value="" disabled>
-
-                Select State
-
-              </MenuItem>
-              {states.map((state) => (
-                <MenuItem key={state} value={state}>
-                  {state}
+          <div id="state" style={{ width: "100%" }}>
+            <FormControl fullWidth>
+              <Select
+                value={selectedState}
+                displayEmpty
+                onChange={(e) => setSelectedState(e.target.value)}
+                sx={{ height: 48, backgroundColor: "#F1F5FF" }}
+              >
+                <MenuItem value="" disabled>
+                  Select State
                 </MenuItem>
-              ))}
-            </Select>
-          </FormControl>
+                {states.map((state) => (
+                  <MenuItem key={state} value={state}>
+                    {state}
+                  </MenuItem>
+                ))}
+              </Select>
+            </FormControl>
+          </div>
+
 
           {/* CITY */}
-          <FormControl fullWidth>
-            <Select
-              value={selectedCity}
-              displayEmpty
-              disabled={!selectedState || loadingCities}
-              onChange={(e) => setSelectedCity(e.target.value)}
-              sx={{ height: 48, backgroundColor: "#F1F5FF" }}
-            >
-              <MenuItem value="" disabled>
-                {loadingCities ? "Loading cities..." : "Select City"}
-              </MenuItem>
-              {cities.map((city) => (
-                <MenuItem key={city} value={city}>
-                  {city}
+          <div id="city" style={{ width: "100%" }}>
+            <FormControl fullWidth>
+              <Select
+                value={selectedCity}
+                displayEmpty
+                disabled={!selectedState || loadingCities}
+                onChange={(e) => setSelectedCity(e.target.value)}
+                sx={{ height: 48, backgroundColor: "#F1F5FF" }}
+              >
+                <MenuItem value="" disabled>
+                  Select City
                 </MenuItem>
-              ))}
-            </Select>
-          </FormControl>
+                {cities.map((city) => (
+                  <MenuItem key={city} value={city}>
+                    {city}
+                  </MenuItem>
+                ))}
+              </Select>
+            </FormControl>
+          </div>
+
 
           {/* SEARCH BUTTON */}
           <Button
+            id="searchBtn"
+            type="submit"
             variant="contained"
             disabled={!selectedState || !selectedCity}
             onClick={handleSearch}
@@ -203,7 +209,7 @@ export default function Hero() {
         <Typography mt={4} mb={3} textAlign="center" color="#1B3C74">
 
           You may be looking for
-          
+
         </Typography>
 
         <Box display="flex" justifyContent="space-between" flexWrap="wrap">

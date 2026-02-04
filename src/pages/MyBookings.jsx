@@ -142,19 +142,31 @@ export default function MyBookings() {
 
                                         {/* DATE + TIME */}
                                         <Box textAlign="right">
-                                            <Box
-                                                sx={{
+                                            <p
+                                                style={{
                                                     border: "1px solid #90B4FF",
                                                     color: "#2AA7FF",
-                                                    px: 2,
-                                                    py: 0.5,
+                                                    padding: "4px 12px",
                                                     borderRadius: "6px",
-                                                    mb: 1,
+                                                    marginBottom: "8px",
                                                     display: "inline-block",
                                                 }}
                                             >
                                                 {booking.time}
-                                            </Box>
+                                            </p>
+
+                                            <p
+                                                style={{
+                                                    border: "1px solid #16A34A",
+                                                    color: "#16A34A",
+                                                    padding: "4px 12px",
+                                                    borderRadius: "6px",
+                                                    display: "inline-block",
+                                                }}
+                                            >
+                                                {booking.date}
+                                            </p>
+
 
                                             <Box
                                                 sx={{
