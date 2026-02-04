@@ -28,8 +28,11 @@ export default function MyBookings() {
 
     /*  FILTER BOOKINGS  */
     const filteredBookings = bookings.filter((b) =>
-        b.hospitalName.toLowerCase().includes(searchText.toLowerCase())
+        (b?.hospitalName || "")
+            .toLowerCase()
+            .includes((searchText || "").toLowerCase())
     );
+
 
     return (
         <>
