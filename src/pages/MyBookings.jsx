@@ -121,9 +121,8 @@ export default function MyBookings() {
                                         {/* DETAILS */}
                                         <Box flex={1}>
                                             {/* REQUIRED h3 */}
-                                            <h3 style={{ color: "#2AA7FF" }}>
-                                                  {booking.hospitalName}
-                                            </h3>
+                                         <h3 style={{ color: "#2AA7FF" }}>{(booking.hospitalName || "").toLowerCase().trim()}</h3>
+
 
 
                                             <Typography fontWeight={500}>
