@@ -57,7 +57,7 @@ export default function Search() {
             JSON.parse(localStorage.getItem("bookings")) || [];
 
         const newBooking = {
-            hospitalName: selectedBooking.hospital["Hospital Name"],
+            hospitalName: selectedBooking.hospital["Hospital Name"].toLowerCase(),
             city: selectedBooking.hospital.City,
             state: selectedBooking.hospital.State,
             date: selectedBooking.date,
