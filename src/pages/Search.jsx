@@ -65,10 +65,12 @@ export default function Search() {
             email,
         };
 
-        localStorage.setItem(
-            "bookings",
-            JSON.stringify([...existingBookings, newBooking])
-        );
+        // localStorage.setItem(
+        //     "bookings",
+        //     JSON.stringify([...existingBookings, newBooking])
+        // );
+
+        localStorage.setItem("bookings", JSON.stringify([newBooking]));
 
         setBookingModalOpen(false);
         setToastOpen(true);
