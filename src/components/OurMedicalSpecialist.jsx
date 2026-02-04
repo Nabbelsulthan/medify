@@ -52,7 +52,7 @@ export default function OurMedicalSpecialist() {
                         }
                     }
                 }
-                  style={{ paddingBottom: "30px" }}
+                style={{ paddingBottom: "30px" }}
             >
                 {specialist_data.map((doc, index) => (
                     <SwiperSlide key={index}>
@@ -63,7 +63,7 @@ export default function OurMedicalSpecialist() {
                     </SwiperSlide>
                 ))}
             </Swiper>
-            
+
         </Box>
     )
 }

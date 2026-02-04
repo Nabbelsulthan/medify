@@ -1,108 +1,108 @@
 import {
-  Dialog,
-  DialogContent,
-  Typography,
-  TextField,
-  Button,
-  Box,
+    Dialog,
+    DialogContent,
+    Typography,
+    TextField,
+    Button,
+    Box,
 } from "@mui/material";
 import { useState } from "react";
 
 export default function ConfirmBookingModal({
-  open,
-  onClose,
-  bookingDetails,
-  onConfirm,
+    open,
+    onClose,
+    bookingDetails,
+    onConfirm,
 }) {
-  const [email, setEmail] = useState("");
-  const [error, setError] = useState("");
+    const [email, setEmail] = useState("");
+    const [error, setError] = useState("");
 
-  const handleConfirm = () => {
-    if (!email) {
-      setError("Email is required");
-      return;
-    }
+    const handleConfirm = () => {
+        if (!email) {
+            setError("Email is required");
+            return;
+        }
 
 
-    const isValid = email.includes("@") && email.includes(".");
+        const isValid = email.includes("@") && email.includes(".");
 
-    if (!isValid) {
-      setError("Please enter a valid email address");
-      return;
-    }
+        if (!isValid) {
+            setError("Please enter a valid email address");
+            return;
+        }
 
-    setError("");
-    onConfirm(email);
-    setEmail("");
-  };
+        setError("");
+        onConfirm(email);
+        setEmail("");
+    };
 
-  const handleClose = () => {
-    setEmail("");
-    setError("");
-    onClose();
-  };
+    const handleClose = () => {
+        setEmail("");
+        setError("");
+        onClose();
+    };
 
-  return (
-    <Dialog open={open} onClose={handleClose} maxWidth="sm" fullWidth>
+    return (
+        <Dialog open={open} onClose={handleClose} maxWidth="sm" fullWidth>
 
-      <DialogContent sx={{ p: 4 }}>
+            <DialogContent sx={{ p: 4 }}>
 
-        <Typography fontSize="32px" fontWeight={700} mb={1}>
+                <Typography fontSize="32px" fontWeight={700} mb={1}>
 
-          Confirm booking
+                    Confirm booking
 
-        </Typography>
+                </Typography>
 
-        <Typography mb={3}>
+                <Typography mb={3}>
 
-          Please enter your email to confirm booking for{" "}
+                    Please enter your email to confirm booking for{" "}
 
-          <strong>
+                    <strong>
 
-            {bookingDetails.time} on {bookingDetails.date}
-            
-          </strong>
-        </Typography>
+                        {bookingDetails.time} on {bookingDetails.date}
 
-        <TextField
-          fullWidth
-          type="email"
-          placeholder="Enter your email *"
-          value={email}
-          onChange={(e) => {
-            setEmail(e.target.value);
-            setError("");
-          }}
-          error={Boolean(error)}
-          helperText={error}
-          sx={{ mb: 3 }}
-        />
+                    </strong>
+                </Typography>
 
-        <Box display="flex" gap={2}>
-          <Button
-            variant="contained"
-            sx={{
-              backgroundColor: "#2AA7FF",
-              textTransform: "none",
-              px: 4,
-            }}
-            onClick={handleConfirm}
-          >
-            Confirm
-          </Button>
+                <TextField
+                    fullWidth
+                    type="email"
+                    placeholder="Enter your email *"
+                    value={email}
+                    onChange={(e) => {
+                        setEmail(e.target.value);
+                        setError("");
+                    }}
+                    error={Boolean(error)}
+                    helperText={error}
+                    sx={{ mb: 3 }}
+                />
 
-          <Button
-            variant="outlined"
-            sx={{
-              textTransform: "none",
-              px: 4,
-            }}
-            onClick={handleClose}
-          >
-            Cancel
-          </Button>
-        </Box>
-      </DialogContent>
-    </Dialog>
-  );
+                <Box display="flex" gap={2}>
+                    <Button
+                        variant="contained"
+                        sx={{
+                            backgroundColor: "#2AA7FF",
+                            textTransform: "none",
+                            px: 4,
+                        }}
+                        onClick={handleConfirm}
+                    >
+                        Confirm
+                    </Button>
+
+                    <Button
+                        variant="outlined"
+                        sx={{
+                            textTransform: "none",
+                            px: 4,
+                        }}
+                        onClick={handleClose}
+                    >
+                        Cancel
+                    </Button>
+                </Box>
+            </DialogContent>
+        </Dialog>
+    );
 }

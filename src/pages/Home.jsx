@@ -12,20 +12,20 @@ import DownloadApp from "../components/DownloadApp";
 import Footer from "../components/Footer";
 
 export default function Home() {
-  return (
-    <>
-      <TopNoticeBar />
-      <Navbar />
-      <Hero />
-      <OfferCarousel />
-      <FindBySpecialisation />
-      <OurMedicalSpecialist />
-      <PatientCaring />
-      <LatestNews />
-      <OurFamilies />
-      <FAQSection />
-      <DownloadApp />
-      <Footer />
-    </>
-  );
+    return (
+        <>
+            <TopNoticeBar />
+            <Navbar />
+            <Hero />
+            <OfferCarousel />
+            <FindBySpecialisation />
+            <OurMedicalSpecialist />
+            <PatientCaring />
+            <LatestNews />
+            <OurFamilies />
+            <FAQSection />
+            <DownloadApp />
+            <Footer />
+        </>
+    );
 }
