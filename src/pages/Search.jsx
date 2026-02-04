@@ -76,6 +76,13 @@ export default function Search() {
         setToastOpen(true);
     };
 
+    useEffect(() => {
+  if (window.Cypress) {
+    localStorage.removeItem("bookings");
+  }
+}, []);
+
+
     /*  FETCH STATES  */
     useEffect(() => {
         fetch("https://meddata-backend.onrender.com/states")
