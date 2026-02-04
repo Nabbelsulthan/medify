@@ -15,6 +15,8 @@ import logo from "../assets/Icon.png";
 
 import { Link } from "react-router-dom";
 import { Typography } from '@mui/material';
+import { useNavigate } from "react-router-dom";
+
 
 
 const navLinks = [
@@ -28,6 +30,8 @@ const navLinks = [
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
+  const navigate = useNavigate();
+
 
   return (
     <>
@@ -67,9 +71,11 @@ export default function Navbar() {
             <Button
               variant="contained"
               sx={{ borderRadius: "20px", textTransform: "none" }}
+              onClick={() => navigate("/my-bookings")}
             >
               My Bookings
             </Button>
+
           </Box>
 
           {/* Mobile Hamburger */}
