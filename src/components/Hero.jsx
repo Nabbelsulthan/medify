@@ -174,7 +174,7 @@ export default function Hero() {
               <Select
                 value={selectedCity}
                 displayEmpty
-                disabled={!selectedState || loadingCities}
+                // disabled={!selectedState || loadingCities}
                 onChange={(e) => setSelectedCity(e.target.value)}
                 sx={{ height: 48, backgroundColor: "#F1F5FF" }}
               >
@@ -196,7 +196,7 @@ export default function Hero() {
             id="searchBtn"
             type="submit"
             variant="contained"
-            disabled={!selectedState || !selectedCity}
+            // disabled={!selectedState || !selectedCity}
             onClick={handleSearch}
             sx={{ px: 4 }}
           >
