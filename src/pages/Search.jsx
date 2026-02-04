@@ -53,8 +53,8 @@ export default function Search() {
 
     /*  CONFIRM BOOKING  */
     const handleConfirmBooking = (email) => {
-        // const existingBookings =
-        //     JSON.parse(localStorage.getItem("bookings")) || [];
+        const existingBookings =
+            JSON.parse(localStorage.getItem("bookings")) || [];
 
         const newBooking = {
             hospitalName: selectedBooking.hospital["Hospital Name"],
@@ -65,22 +65,18 @@ export default function Search() {
             email,
         };
 
-        // localStorage.setItem(
-        //     "bookings",
-        //     JSON.stringify([...existingBookings, newBooking])
-        // );
+        localStorage.setItem(
+            "bookings",
+            JSON.stringify([...existingBookings, newBooking])
+        );
 
-        localStorage.setItem("bookings", JSON.stringify([newBooking]));
+        // localStorage.setItem("bookings", JSON.stringify([newBooking]));
 
         setBookingModalOpen(false);
         setToastOpen(true);
     };
 
-    useEffect(() => {
-  if (window.Cypress) {
-    localStorage.removeItem("bookings");
-  }
-}, []);
+
 
 
     /*  FETCH STATES  */

@@ -122,7 +122,7 @@ export default function MyBookings() {
                                         <Box flex={1}>
                                             {/* REQUIRED h3 */}
                                             <h3 style={{ color: "#2AA7FF" }}>
-                                                {(booking.hospitalName || "").toLowerCase()}
+                                                  {booking.hospitalName}
                                             </h3>
 
 
