@@ -29,7 +29,7 @@ export default function Hero() {
   const [selectedState, setSelectedState] = useState("");
   const [selectedCity, setSelectedCity] = useState("");
 
-  const [loadingCities, setLoadingCities] = useState(false);
+  // const [loadingCities, setLoadingCities] = useState(false);
 
   /* ------------------ FETCH STATES ------------------ */
   useEffect(() => {
@@ -43,7 +43,7 @@ export default function Hero() {
   useEffect(() => {
     if (!selectedState) return;
 
-    setLoadingCities(true);
+    // setLoadingCities(true);
     setSelectedCity("");
     setCities([]);
 
@@ -53,7 +53,7 @@ export default function Hero() {
       .then((res) => res.json())
       .then((data) => setCities(data))
       .catch((err) => console.error(err))
-      .finally(() => setLoadingCities(false));
+      // .finally(() => setLoadingCities(false));
   }, [selectedState]);
 
   /*  SEARCH HANDLER  */
