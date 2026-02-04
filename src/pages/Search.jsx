@@ -53,8 +53,8 @@ export default function Search() {
 
     /*  CONFIRM BOOKING  */
     const handleConfirmBooking = (email) => {
-        const existingBookings =
-            JSON.parse(localStorage.getItem("bookings")) || [];
+        // const existingBookings =
+        //     JSON.parse(localStorage.getItem("bookings")) || [];
 
         const newBooking = {
             hospitalName: selectedBooking.hospital["Hospital Name"],
