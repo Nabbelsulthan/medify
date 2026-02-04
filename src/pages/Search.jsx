@@ -10,7 +10,7 @@ import {
     CircularProgress,
 } from "@mui/material";
 import { useEffect, useState } from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation,useNavigate } from "react-router-dom";
 
 import TopNoticeBar from "../components/TopNoticeBar";
 import Navbar from "../components/Navbar";
@@ -51,30 +51,60 @@ export default function Search() {
         time: "",
     });
 
+    const navigate = useNavigate();
+
+
     /*  CONFIRM BOOKING  */
+    // const handleConfirmBooking = (email) => {
+    //     const existingBookings =
+    //         JSON.parse(localStorage.getItem("bookings")) || [];
+
+    //     const newBooking = {
+    //         hospitalName: selectedBooking.hospital["Hospital Name"],
+    //         city: selectedBooking.hospital.City,
+    //         state: selectedBooking.hospital.State,
+    //         date: selectedBooking.date,
+    //         time: selectedBooking.time,
+    //         email,
+    //     };
+
+    //     localStorage.setItem(
+    //         "bookings",
+    //         JSON.stringify([...existingBookings, newBooking])
+    //     );
+
+    //     // localStorage.setItem("bookings", JSON.stringify([newBooking]));
+
+    //     setBookingModalOpen(false);
+    //     setToastOpen(true);
+    // };
+
+
     const handleConfirmBooking = (email) => {
-        const existingBookings =
-            JSON.parse(localStorage.getItem("bookings")) || [];
+    const existingBookings =
+        JSON.parse(localStorage.getItem("bookings")) || [];
 
-        const newBooking = {
-            hospitalName: selectedBooking.hospital["Hospital Name"],
-            city: selectedBooking.hospital.City,
-            state: selectedBooking.hospital.State,
-            date: selectedBooking.date,
-            time: selectedBooking.time,
-            email,
-        };
-
-        localStorage.setItem(
-            "bookings",
-            JSON.stringify([...existingBookings, newBooking])
-        );
-
-        // localStorage.setItem("bookings", JSON.stringify([newBooking]));
-
-        setBookingModalOpen(false);
-        setToastOpen(true);
+    const newBooking = {
+        hospitalName: selectedBooking.hospital["Hospital Name"],
+        city: selectedBooking.hospital.City,
+        state: selectedBooking.hospital.State,
+        date: selectedBooking.date,
+        time: selectedBooking.time,
+        email,
     };
+
+    localStorage.setItem(
+        "bookings",
+        JSON.stringify([...existingBookings, newBooking])
+    );
+
+    setBookingModalOpen(false);
+    setToastOpen(true);
+
+  
+    navigate("/my-bookings");
+};
+
 
 
 
