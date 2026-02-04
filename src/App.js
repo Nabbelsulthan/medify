@@ -1,35 +1,14 @@
-
-import './App.css';
-
-import Navbar from './components/Navbar';
-import Hero from './components/Hero';
-import TopNoticeBar from './components/TopNoticeBar';
-import OfferCarousel from './components/OfferCarousel';
-import FindBySpecialisation from './components/FindBySpecialisation';
-import OurMedicalSpecialist from './components/OurMedicalSpecialist';
-import PatientCaring from './components/PatientCaring';
-import LatestNews from './components/LatestNews';
-import OurFamilies from './components/OurFamilies';
-import FAQSection from './components/FAQSection';
-import DownloadApp from './components/DownloadApp';
-import Footer from './components/Footer';
+import "./App.css";
+import { Routes, Route } from "react-router-dom";
+import Home from "./pages/Home";
+import Search from "./pages/Search";
 
 function App() {
   return (
-    <div className="App">
-      <TopNoticeBar/>
-  <Navbar />
-  <Hero />
-  <OfferCarousel/>
-  <FindBySpecialisation/>
-  <OurMedicalSpecialist/>
-  <PatientCaring/>
-  <LatestNews/>
-  <OurFamilies/>
-  <FAQSection/>
-  <DownloadApp/>
-  <Footer/>
-    </div>
+    <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="/search" element={<Search />} />
+    </Routes>
   );
 }
 

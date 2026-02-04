@@ -1,5 +1,16 @@
-import { Box, Typography, Button, Paper } from "@mui/material";
+import {
+  Box,
+  Typography,
+  Button,
+  Paper,
+  Select,
+  MenuItem,
+  FormControl,
+} from "@mui/material";
+import { useEffect, useState } from "react";
 import heroImg from "../assets/hero_image.png";
+import { useNavigate } from "react-router-dom";
+
 
 const categories = [
   { label: "Doctors", icon: "Doctors.png" },
@@ -10,8 +21,70 @@ const categories = [
 ];
 
 export default function Hero() {
+  const navigate = useNavigate();
+
+  const [states, setStates] = useState([]);
+  const [cities, setCities] = useState([]);
+
+  const [selectedState, setSelectedState] = useState("");
+  const [selectedCity, setSelectedCity] = useState("");
+
+  const [loadingCities, setLoadingCities] = useState(false);
+
+  /* ------------------ FETCH STATES ------------------ */
+  useEffect(() => {
+    fetch("https://meddata-backend.onrender.com/states")
+      .then((res) => res.json())
+      .then((data) => setStates(data))
+      .catch((err) => console.error(err));
+  }, []);
+
+  /* ------------------ FETCH CITIES ------------------ */
+  useEffect(() => {
+    if (!selectedState) return;
+
+    setLoadingCities(true);
+    setSelectedCity("");
+    setCities([]);
+
+    fetch(
+      `https://meddata-backend.onrender.com/cities/${selectedState}`
+    )
+      .then((res) => res.json())
+      .then((data) => setCities(data))
+      .catch((err) => console.error(err))
+      .finally(() => setLoadingCities(false));
+  }, [selectedState]);
+
+  /* ------------------ SEARCH HANDLER ------------------ */
+  const handleSearch = async () => {
+    if (!selectedState || !selectedCity) return;
+
+    try {
+      const res = await fetch(
+        `https://meddata-backend.onrender.com/data?state=${selectedState}&city=${selectedCity}`
+      );
+      const data = await res.json();
+
+      console.log("Hospital Results:", data);
+
+     
+     navigate("/search", {
+  state: {
+    state: selectedState,
+    city: selectedCity,
+  },
+});
+
+
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
   return (
     <Box sx={{ backgroundColor: "#FFFFFF", pb: 8 }}>
+      {/* HERO */}
       <Box
         maxWidth="1200px"
         mx="auto"
@@ -20,10 +93,7 @@ export default function Hero() {
         display="flex"
         flexDirection={{ xs: "column", md: "row" }}
         alignItems="center"
-        textAlign={{ xs: "center", md: "left" }}
       >
-
-        {/* Left Content */}
         <Box maxWidth="520px">
           <Typography fontSize="18px" color="#1B3C74">
             Skip the travel! Find Online
@@ -45,31 +115,18 @@ export default function Hero() {
           </Button>
         </Box>
 
-        {/* Hero Image */}
-
-
         <Box
           sx={{
             position: "relative",
-            top: { xs: "0px", md: "40px" },
-            zIndex: 2,
+            top: { xs: 0, md: 40 },
             mt: { xs: 4, md: 0 },
           }}
         >
-          <img
-            src={heroImg}
-            alt="Doctors"
-            style={{
-              width: "100%",
-              maxWidth: "480px",
-              display: "block",
-            }}
-          />
+          <img src={heroImg} alt="Doctors" width="480" />
         </Box>
-
       </Box>
 
-      {/* Search Card */}
+      {/* SEARCH CARD */}
       <Paper
         elevation={4}
         sx={{
@@ -80,25 +137,64 @@ export default function Hero() {
           borderRadius: "16px",
         }}
       >
-        {/* Search Inputs Placeholder */}
-        <Box
-          display="flex"
-          gap={2}
-          flexDirection={{ xs: "column", md: "row" }}
-        >
-          <Box flex={1} height="48px" bgcolor="#F1F5FF" borderRadius="8px" />
-          <Box flex={1} height="48px" bgcolor="#F1F5FF" borderRadius="8px" />
-          <Button variant="contained">Search</Button>
+        <Box display="flex" gap={2} flexDirection={{ xs: "column", md: "row" }}>
+          {/* STATE */}
+          <FormControl fullWidth>
+            <Select
+              value={selectedState}
+              displayEmpty
+              onChange={(e) => setSelectedState(e.target.value)}
+              sx={{ height: 48, backgroundColor: "#F1F5FF" }}
+            >
+              <MenuItem value="" disabled>
+                Select State
+              </MenuItem>
+              {states.map((state) => (
+                <MenuItem key={state} value={state}>
+                  {state}
+                </MenuItem>
+              ))}
+            </Select>
+          </FormControl>
+
+          {/* CITY */}
+          <FormControl fullWidth>
+            <Select
+              value={selectedCity}
+              displayEmpty
+              disabled={!selectedState || loadingCities}
+              onChange={(e) => setSelectedCity(e.target.value)}
+              sx={{ height: 48, backgroundColor: "#F1F5FF" }}
+            >
+              <MenuItem value="" disabled>
+                {loadingCities ? "Loading cities..." : "Select City"}
+              </MenuItem>
+              {cities.map((city) => (
+                <MenuItem key={city} value={city}>
+                  {city}
+                </MenuItem>
+              ))}
+            </Select>
+          </FormControl>
+
+          {/* SEARCH BUTTON */}
+          <Button
+            variant="contained"
+            disabled={!selectedState || !selectedCity}
+            onClick={handleSearch}
+            sx={{ px: 4 }}
+          >
+            Search
+          </Button>
         </Box>
 
-
+        {/* CATEGORIES */}
         <Typography mt={4} mb={3} textAlign="center" color="#1B3C74">
           You may be looking for
         </Typography>
 
-        {/* Category Icons */}
-        <Box display="flex" justifyContent="space-between">
-          {categories.map(cat => (
+        <Box display="flex" justifyContent="space-between" flexWrap="wrap">
+          {categories.map((cat) => (
             <Box
               key={cat.label}
               textAlign="center"

@@ -13,6 +13,10 @@ import MenuIcon from "@mui/icons-material/Menu";
 import { useState } from "react";
 import logo from "../assets/Icon.png";
 
+import { Link } from "react-router-dom";
+import { Typography } from '@mui/material';
+
+
 const navLinks = [
   "Find Doctors",
   "Hospitals",
@@ -29,11 +33,21 @@ export default function Navbar() {
     <>
       <AppBar position="static" elevation={0} sx={{ backgroundColor: "#FFFFFF" }}>
         <Toolbar sx={{ justifyContent: "space-between" }}>
-          
+
           {/* Logo */}
-          <Box display="flex" alignItems="center" gap={1}>
+          {/* <Box display="flex" alignItems="center" gap={1}>
             <img src={logo} alt="Medify Logo" height="32" />
-          </Box>
+          </Box> */}
+
+
+          <Link to="/" style={{ textDecoration: "none" }}>
+            <Box display="flex" alignItems="center" gap={1}>
+              <img src={logo} alt="Medify" />
+              <Typography fontWeight={700} color="#2AA7FF">
+              </Typography>
+            </Box>
+          </Link>
+
 
           {/* Desktop Nav */}
           <Box
