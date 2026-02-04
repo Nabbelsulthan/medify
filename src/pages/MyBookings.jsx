@@ -16,7 +16,11 @@ import hospitalIcon from "../assets/Hospital.png";
 import DownloadApp from "../components/DownloadApp";
 
 export default function MyBookings() {
-    const [bookings, setBookings] = useState([]);
+    const [bookings, setBookings] = useState(() => {
+        const stored = localStorage.getItem("bookings");
+        return stored ? JSON.parse(stored) : [];
+    });
+
     const [searchText, setSearchText] = useState("");
 
     /*  LOAD BOOKINGS  */
