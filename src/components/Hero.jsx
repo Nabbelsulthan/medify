@@ -56,7 +56,7 @@ export default function Hero() {
       .finally(() => setLoadingCities(false));
   }, [selectedState]);
 
-  /* ------------------ SEARCH HANDLER ------------------ */
+  /*  SEARCH HANDLER  */
   const handleSearch = async () => {
     if (!selectedState || !selectedCity) return;
 
@@ -96,22 +96,30 @@ export default function Hero() {
       >
         <Box maxWidth="520px">
           <Typography fontSize="18px" color="#1B3C74">
+
             Skip the travel! Find Online
+
           </Typography>
 
           <Typography fontSize="48px" fontWeight={700} color="#1B3C74">
+
             Medical <span style={{ color: "#2D6CDF" }}>Centers</span>
+
           </Typography>
 
           <Typography mt={2} color="#77829D">
+
             Connect instantly with a 24x7 specialist or choose to video visit a particular doctor.
+
           </Typography>
 
           <Button
             variant="contained"
             sx={{ mt: 4, borderRadius: "8px", textTransform: "none" }}
           >
+
             Find Centers
+
           </Button>
         </Box>
 
@@ -147,7 +155,9 @@ export default function Hero() {
               sx={{ height: 48, backgroundColor: "#F1F5FF" }}
             >
               <MenuItem value="" disabled>
+
                 Select State
+
               </MenuItem>
               {states.map((state) => (
                 <MenuItem key={state} value={state}>
@@ -185,12 +195,15 @@ export default function Hero() {
             sx={{ px: 4 }}
           >
             Search
+
           </Button>
         </Box>
 
         {/* CATEGORIES */}
         <Typography mt={4} mb={3} textAlign="center" color="#1B3C74">
+
           You may be looking for
+          
         </Typography>
 
         <Box display="flex" justifyContent="space-between" flexWrap="wrap">

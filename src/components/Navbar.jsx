@@ -73,7 +73,9 @@ export default function Navbar() {
               sx={{ borderRadius: "20px", textTransform: "none" }}
               onClick={() => navigate("/my-bookings")}
             >
+
               My Bookings
+              
             </Button>
 
           </Box>
@@ -104,7 +106,9 @@ export default function Navbar() {
                 variant="contained"
                 sx={{ textTransform: "none" }}
               >
+
                 My Bookings
+
               </Button>
             </ListItem>
           </List>

@@ -2,14 +2,20 @@
 import { Box, Typography } from "@mui/material";
 import familiesBanner from "../assets/our-families-banner.png";
 
+
+
+
+
 export default function OurFamilies() {
   return (
+
     <Box
       sx={{
         backgroundColor: "#E7F0FF",
         py: { xs: 6, md: 10 },
       }}
     >
+
       <Box
         maxWidth="1200px"
         mx="auto"
@@ -20,6 +26,7 @@ export default function OurFamilies() {
         gap={6}
       >
         {/* LEFT CONTENT */}
+
         <Box width={{ xs: "100%", md: "45%" }}>
           <Typography
             fontSize="14px"
@@ -28,6 +35,7 @@ export default function OurFamilies() {
             mb={1}
           >
             CARING FOR THE HEALTH OF YOU AND YOUR FAMILY.
+
           </Typography>
 
           <Typography
@@ -36,7 +44,9 @@ export default function OurFamilies() {
             color="#1B3C74"
             mb={3}
           >
+
             Our Families
+
           </Typography>
 
           <Typography
@@ -44,11 +54,13 @@ export default function OurFamilies() {
             lineHeight={1.9}
             maxWidth="480px"
           >
+
             We will work with you to develop individualised care plans,
             including management of chronic diseases. If we cannot assist,
             we can provide referrals or advice about the type of practitioner
             you require. We treat all enquiries sensitively and in the
             strictest confidence.
+
           </Typography>
         </Box>
 
@@ -58,6 +70,7 @@ export default function OurFamilies() {
           display="flex"
           justifyContent="center"
         >
+
           <Box
             component="img"
             src={familiesBanner}
@@ -69,6 +82,7 @@ export default function OurFamilies() {
               boxShadow: "0 24px 48px rgba(0,0,0,0.08)",
             }}
           />
+          
         </Box>
       </Box>
     </Box>

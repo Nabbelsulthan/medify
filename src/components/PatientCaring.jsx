@@ -2,6 +2,9 @@ import { Box, Typography } from "@mui/material";
 import consultationImg from "../assets/Consultation.png";
 import frameIcon from "../assets/Frame.png";
 
+
+
+
 export default function PatientCaring() {
   return (
     <Box
@@ -20,7 +23,7 @@ export default function PatientCaring() {
         alignItems="center"
         gap={6}
       >
-        {/* LEFT: Big Consultation Image */}
+        {/*  Consultation Image */}
         <Box width={{ xs: "100%", md: "50%" }} textAlign="center">
           <img
             src={consultationImg}
@@ -43,6 +46,7 @@ export default function PatientCaring() {
             mb={1}
           >
             HELPING PATIENTS FROM AROUND THE GLOBE!!
+
           </Typography>
 
           <Typography
@@ -52,6 +56,7 @@ export default function PatientCaring() {
             mb={3}
           >
             Patient <span style={{ color: "#2AA7FF" }}>Caring</span>
+
           </Typography>
 
           <Typography
@@ -59,9 +64,11 @@ export default function PatientCaring() {
             lineHeight={1.8}
             mb={4}
           >
+
             Our goal is to deliver quality of care in a courteous, respectful,
             and compassionate manner. We hope you will allow us to care for you
             and strive to be the first and best choice for healthcare.
+            
           </Typography>
 
           {/* Bullet Points */}

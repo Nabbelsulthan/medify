@@ -55,8 +55,8 @@ export default function OfferCarousel() {
         ))}
       </Swiper>
 
-      {/* ✅ Pagination container */}
-      <Box className="custom-pagination" />
+      {/* Pagination container */}
+      {/* <Box className="custom-pagination" /> */}
     </Box>
   );
 }

@@ -2,6 +2,9 @@ import { Box, Typography } from "@mui/material";
 import faqImage from "../assets/faqs-banner.jpg";
 import plusIcon from "../assets/plus.png";
 
+
+
+
 const faqs = [
   "Why choose our medical for your family?",
   "Why we are different from others?",
@@ -10,9 +13,12 @@ const faqs = [
 ];
 
 export default function FAQSection() {
+
   return (
     <Box py={{ xs: 6, md: 10 }} bgcolor="#FFFFFF">
+
       <Box maxWidth="1200px" mx="auto" px={{ xs: 2, md: 4 }}>
+
         {/* Heading */}
         <Typography
           textAlign="center"
@@ -21,7 +27,9 @@ export default function FAQSection() {
           color="#2AA7FF"
           mb={1}
         >
+
           Get Your Answer
+
         </Typography>
 
         <Typography
@@ -31,7 +39,9 @@ export default function FAQSection() {
           color="#1B3C74"
           mb={6}
         >
+
           Frequently Asked Questions
+
         </Typography>
 
         {/* Content */}
@@ -42,12 +52,14 @@ export default function FAQSection() {
           gap={6}
         >
           {/* LEFT IMAGE */}
+
           <Box
             position="relative"
             width={{ xs: "100%", md: "50%" }}
             display="flex"
             justifyContent="center"
           >
+
             <Box
               component="img"
               src={faqImage}
@@ -57,7 +69,10 @@ export default function FAQSection() {
                 maxWidth: "520px",
                 borderRadius: "16px",
               }}
+
             />
+
+
           </Box>
 
           {/* RIGHT FAQ LIST */}
@@ -70,6 +85,7 @@ export default function FAQSection() {
                 justifyContent="space-between"
                 py={2}
               >
+                
                 <Typography
                   fontSize="16px"
                   fontWeight={600}

@@ -23,7 +23,7 @@ export default function ConfirmBookingModal({
       return;
     }
 
-    // simple browser-level email validation
+
     const isValid = email.includes("@") && email.includes(".");
 
     if (!isValid) {
@@ -44,15 +44,23 @@ export default function ConfirmBookingModal({
 
   return (
     <Dialog open={open} onClose={handleClose} maxWidth="sm" fullWidth>
+
       <DialogContent sx={{ p: 4 }}>
+
         <Typography fontSize="32px" fontWeight={700} mb={1}>
+
           Confirm booking
+
         </Typography>
 
         <Typography mb={3}>
+
           Please enter your email to confirm booking for{" "}
+
           <strong>
+
             {bookingDetails.time} on {bookingDetails.date}
+            
           </strong>
         </Typography>
 
